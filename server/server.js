@@ -3,7 +3,7 @@ const connectDB = require("./config/db")
 const cors = require('cors')
 const helmet = require('helmet')
 
-const statsRoute = require('./routes/stats')
+const statsRouter = require('./routes/stats')
 const app = express()
 connectDB()
 
@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(cors())
 app.use(helmet())
 
-app.use('/stats', statsRoute)
+app.use('/stats', statsRouter)
 
 app.get('/', (req, res) => {
     res.send('<h2>“The code is more what you’d call ‘guidelines’ than actual rules.” – Hector Barbossa</h2>')
